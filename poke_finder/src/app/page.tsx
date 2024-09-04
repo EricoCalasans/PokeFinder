@@ -31,6 +31,7 @@ export default function Home() {
     fetchPokemon();
   }, []);
 
+  
   return (
     <main className="min-h-screen flex-col items-center p-10 py-20">
       <div className="flex flex-wrap  w-full items-center justify-center font-mono text-sm ">

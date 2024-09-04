@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { PokeBase } from '../../class/pokeBase';
 import { getPokemon } from "@/app/api/pokeApi";
 import { Pokemon } from "@/app/class/pokemon";
+import Image from 'next/image'
 
 
 
@@ -27,7 +28,7 @@ export const PokeCard = (props: pokeInfo,) => {
                 const data = await getPokemon(props.pokeInfo.url);
                 // const pokemonArray = data.map((e: any) => new Pokemon(e));
                 setpokemon(new Pokemon(data));
-                console.log(pokemon)
+                // console.log(pokemon)
             } catch (err) {
                 console.log(err);
             }
@@ -42,9 +43,22 @@ export const PokeCard = (props: pokeInfo,) => {
     }, [props.onScreen, props.pokeInfo.url, loaded])
 
     return (
-        <div className="bg-gray-600 w-72 h-96 my-3 mx-2">
-            {props.pokeInfo.name}
-            {pokemon && pokemon.id}
+        <div className="bg-gray-600 w-72 h-96 my-3 mx-2 flex-col">
+            <div className=" flex flex-row flex-nowrap justify-between">
+                <div className="bg-red-700 w-full mx-2 px-1 outline">{pokemon && pokemon.name}</div>
+                <div className="bg-red-700 w-auto mx-2 px-1">{pokemon && pokemon.id}</div>
+                
+                
+            </div>
+
+            {pokemon?.mainImage &&
+                <Image
+                    src={pokemon.mainImage}
+                    alt={pokemon.name}
+                    width={500}
+                    height={500}
+                />
+            }
         </div>
     )
 }
