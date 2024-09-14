@@ -44,10 +44,11 @@ export const PokeCard = (props: pokeInfo,) => {
 
     return (
         <div className="bg-gray-600 w-72 h-96 my-3 mx-2 flex-col">
-            <div className=" flex flex-row flex-nowrap justify-between">
-                <div className="bg-red-700 w-full mx-2 px-1 outline">{pokemon && pokemon.name}</div>
-                <div className="bg-red-700 w-auto mx-2 px-1">{pokemon && pokemon.id}</div>
-                
+            <div className="  flex flex-row flex-nowrap justify-between">
+                <div className="outline outline-black flex flex-row w-full ">
+                    <div className="bg-red-700 w-full px-1 text-xl ">{pokemon && pokemon.name}</div>
+                    <div className="bg-red-700 w-auto  outline outline-black text-xl  px-1">{pokemon && pokemon.id}</div>
+                </div>
                 
             </div>
 
